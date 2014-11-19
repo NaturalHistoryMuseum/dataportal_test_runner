@@ -1,0 +1,20 @@
+/*
+ * Dataportal test runner configuration. This is a JSON file. Comments are
+ * allowed.
+ */
+{
+  /* URL to test */
+  "test_url": "http://data.nhm.ac.uk",
+
+  /* Path to the casper tests to run */
+  "casper_tests": "/var/lib/dataportal_test_runner/casper_tests",
+
+  /* URL to the database to store results */
+  "logs_db": "sqlite:////var/lib/dataportal_test_runner/logs.db",
+
+  /* Path to CasperJS */
+  "casper_js": "/usr/bin/casperjs",
+
+  /* Path to PhantomJS. May be empty if PhamtomJS is in your path */
+  "phantom_js": "/usr/bin/phantomjs"
+}
