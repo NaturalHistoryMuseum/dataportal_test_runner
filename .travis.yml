@@ -6,8 +6,8 @@ install:
   - "pip install -e ."
   - "pip install -r requirements.txt"
   - "pip install -r dev_requirements.txt"
-  - "apt-get install npm"
-  - "npm install -g casperjs"
+  - "sudo apt-get install npm"
+  - "sudo npm install -g casperjs phantomjs"
 # command to run tests
 script: coverage run --source=dataportal_test_runner setup.py nosetests
 after_success: coveralls

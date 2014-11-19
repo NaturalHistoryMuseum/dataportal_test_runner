@@ -1,8 +1,8 @@
 """This test actually tests the behaviour of the json reports javascript
 
-It requires two environment variables:
-- CASPERJS_EXECUTABLE: Path to casper JS
-- PHANTOMJS_EXECUTABLE: Path to Phatom JS
+If casperjs or phantomjs are not in your path, then specify them using
+CASPERJS_EXECUTABLE and PHANTOMJS_EXECUTABLE environment variables
+respectively.
 """
 import os
 from subprocess import Popen, PIPE
@@ -12,9 +12,13 @@ from nose.tools import assert_in
 class TestJsonReports(object):
     def test_json_reports(self):
         """Test that json_reports.js works"""
+        if 'CASPERJS_EXECUTABLE' in os.environ:
+            casperjs_executable = os.environ['CASPERJS_EXECUTABLE']
+        else:
+            casperjs_executable = 'casperjs'
         process = Popen(
             [
-                os.environ['CASPERJS_EXECUTABLE'],
+                casperjs_executable,
                 'test', '--json', '--test-self',
                 os.path.join(
                     os.path.dirname(__file__),
