@@ -10,3 +10,4 @@ install:
   - "npm install -g casperjs"
 # command to run tests
 script: coverage run --source=dataportal_test_runner setup.py nosetests
+after_success: coveralls

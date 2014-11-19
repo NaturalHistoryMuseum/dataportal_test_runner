@@ -1,5 +1,6 @@
 Data Portal Test Runner
 =======================
+[![Build Status](https://travis-ci.org/NaturalHistoryMuseum/dataportal_test_runner.svg?branch=master)](https://travis-ci.org/NaturalHistoryMuseum/dataportal_test_runner) [![Coverage Status](https://img.shields.io/coveralls/NaturalHistoryMuseum/dataportal_test_runner.svg)](https://coveralls.io/r/NaturalHistoryMuseum/dataportal_test_runner)
 
 The Data Portal Test Runner is a utility for continuous running of tests on the live version of the Data Portal. Note that this is not about continuous integration or testing the code base (this is done separately as part of each component's code base, and typically run on test data rather than the full museum dataset). This is about testing the live version of the site, to ensure it is running as expected.
 
@@ -63,7 +64,6 @@ The configuration is a JSON file (with comments allowed), and by default stored
 in `/etc/dataportal_test_runner/dataportal_test_runner.json`. It should contain
 the following keys:
 
-    ```json
     /*
      * Dataportal test runner configuration. This is a JSON file. Comments are
      * allowed.
@@ -84,4 +84,3 @@ the following keys:
       /* Path to PhantomJS. May be empty if PhamtomJS is in your path */
       "phantom_js": "/usr/bin/phantomjs"
     }
-    ```
