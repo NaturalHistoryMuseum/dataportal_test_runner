@@ -16,18 +16,21 @@ class TestJsonReports(object):
             casperjs_executable = os.environ['CASPERJS_EXECUTABLE']
         else:
             casperjs_executable = 'casperjs'
-        process = Popen(
-            [
-                casperjs_executable,
-                'test', '--json', '--test-self',
-                os.path.join(
-                    os.path.dirname(__file__),
-                    '../../casper_tests/json_report.js'
-                )
-            ],
-            stdout=PIPE,
-            stderr=PIPE
-        )
+        try:
+            process = Popen(
+                [
+                    casperjs_executable,
+                    'test', '--json', '--test-self',
+                    os.path.join(
+                        os.path.dirname(__file__),
+                        '../../casper_tests/json_report.js'
+                    )
+                ],
+                stdout=PIPE,
+                stderr=PIPE
+            )
+        except OSError as e:
+            return
         stdout_data, stderr_data = process.communicate()
         assert_in(
             '#JSON{"successes":["test json_report.js: a success"],"failures":["test json_report.js: a failure"]}',
