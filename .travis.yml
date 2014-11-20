@@ -8,6 +8,7 @@ install:
   - "pip install -e ."
   - "pip install -r requirements.txt"
   - "pip install -r dev_requirements.txt"
+  - "sudo apt-get install npm"
   - "sudo npm config set registry http://registry.npmjs.org/"
   - "sudo npm install -g casperjs phantomjs"
 # command to run tests
