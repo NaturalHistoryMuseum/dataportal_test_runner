@@ -34,7 +34,7 @@ from dataportal_test_runner.lib.casper_test_runner import CasperTestRunner
 from dataportal_test_runner.lib.logs_database import LogsDatabase
 from dataportal_test_runner.config import read_config
 
-VERSION = '0.1'
+from version import __version__
 
 
 def run_tests(test_name, config, stdout):
@@ -129,7 +129,7 @@ def report(count, running, failed, indicate_failure, run_id, verbose,
 
 def run():
     """Setup tools entry point"""
-    arguments = docopt.docopt(__doc__, help=True, version=VERSION)
+    arguments = docopt.docopt(__doc__, help=True, version=__version__)
     config = read_config(arguments['-c'])
     is_tty = os.isatty(sys.stdout.fileno())
     if arguments['run']:
