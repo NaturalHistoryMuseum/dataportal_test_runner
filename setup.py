@@ -1,6 +1,20 @@
 import os
 from setuptools import setup, find_packages
 
+
+def _find_data_files(root, dest):
+    """ Helper function to gather data files recursively """
+    here = os.path.dirname(__file__)
+    result = []
+    list = os.walk(os.path.join(here, root))
+    for directory, folders, files in list:
+        result.append((
+            os.path.join(dest, os.path.relpath(directory, here)),
+            [os.path.join(directory, f) for f in files]
+        ))
+    return result
+
+
 setup(
     name='dataportal_test_runner',
     version='0.1',
@@ -12,10 +26,13 @@ setup(
             'dataportal_test_runner = dataportal_test_runner.cli:run'
         ]
     },
-    data_files=[
-        (
-            os.path.join('/var/lib/dataportal_test_runner/', w[0]),
-            w[2]
-        ) for w in os.walk(os.path.join(os.path.dirname(__file__), 'casper_tests'))
+    data_files=_find_data_files(
+        'casper_tests',
+        'share/dataportal_test_runner'
+    ),
+    install_requires=[
+        'dataset==0.5.5',
+        'docopt==0.6.2',
+        'jsmin==2.0.11'
     ]
 )
