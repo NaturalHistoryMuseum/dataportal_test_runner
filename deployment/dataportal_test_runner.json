@@ -6,15 +6,15 @@
   /* URL to test */
   "test_url": "http://data.nhm.ac.uk",
 
-  /* Path to the casper tests to run */
-  "casper_tests": "/var/lib/dataportal_test_runner/casper_tests",
+  /* Path to the casper tests to run.  */
+  "casper_tests": "/usr/local/share/dataportal_test_runner/casper_tests",
 
   /* URL to the database to store results */
   "logs_db": "sqlite:////var/lib/dataportal_test_runner/logs.db",
 
   /* Path to CasperJS */
-  "casper_js": "/usr/bin/casperjs",
+  "casper_js": "/usr/local/bin/casperjs",
 
   /* Path to PhantomJS. May be empty if PhamtomJS is in your path */
-  "phantom_js": "/usr/bin/phantomjs"
+  "phantom_js": "/usr/local/lib/node_modules/casperjs/node_modules/phantomjs/bin/phantomjs"
 }
